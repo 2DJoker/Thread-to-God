@@ -19,7 +19,7 @@ model User {
   picture   String   @default("/uploads/no-user-images.png")
   phone     String?  @unique
 
-  store       Store[]
+  stores      Store[]
   orders      Order[]
   favorites   Product[]
   reviews     Review[]
