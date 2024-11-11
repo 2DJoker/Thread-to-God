@@ -1,21 +1,20 @@
-import { IsEmail, isEmail, IsOptional, isString, IsString, MinLength } from 'class-validator'
+import { IsEmail, IsOptional, IsString, MinLength } from 'class-validator';
 
 export class AuthDto {
     @IsOptional()
     @IsString()
-    name: string
+    name?: string; // Сделаем опциональным
 
-    @IsString({
-        message: 'Почта обязательна!'
+    @IsEmail({}, {
+        message: 'Email должен быть корректным!'
     })
-    @IsEmail()
-    email: string
+    email: string;
 
-    @MinLength(6, {
-        message: 'Пароль должен содержать не менее 6 символов!'
-    })
     @IsString({
         message: 'Пароль обязателен!'
     })
-    password: string
+    @MinLength(6, {
+        message: 'Пароль должен содержать не менее 6 символов!'
+    })
+    password: string;
 }
